@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Node Express App</title>
+    <style>
+        span.error {
+            color: #f00;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page-header">
+        <header>
+            <h1>Login</h1>
+        </header>
+    </div>
+    <div id="page-body">
+        <header>
+            <%
+                if (typeof result !== 'undefined' && result) {
+                    if (result.err) {
+                    %>
+                <span class="error"><%= result.err %></span>
+                <%
+                }}
+            %>
+        </header>
+        <form method="post" action="/login">
+            <input placeholder="Username" type="text" name="username">
+            <input placeholder="Password" type="password" name="password">
+            <input type="submit" name="submit">
+        </form>
+    </div>
+    <div id="page-footer">
+        <span>New User?SignUp <a>here</a></span>
+    </div>
+</body>
+
+</html>
