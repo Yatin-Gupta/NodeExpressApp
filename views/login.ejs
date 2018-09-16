@@ -8,6 +8,7 @@
         span.error {
             color: #f00;
             font-weight: bold;
+            display: inline-block;
         }
     </style>
 </head>
@@ -20,13 +21,14 @@
     </div>
     <div id="page-body">
         <header>
-            <%
-                if (typeof result !== 'undefined' && result) {
-                    if (result.err) {
+            <%    
+            if (typeof result !== 'undefined' && result) {
+                    result.err.forEach(function(msg) {
                     %>
-                <span class="error"><%= result.err %></span>
+                <span class="error"><%= msg %></span>
                 <%
-                }}
+                });
+            }
             %>
         </header>
         <form method="post" action="/login">
